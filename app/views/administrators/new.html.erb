@@ -1,0 +1,26 @@
+<h1>Register a new administrator</h1>
+
+<%= form_for [ :admin, @admin ], method: :post do |f| %>
+  <table id="new_administrator" class="list">
+    <tr>
+      <th><%= f.label :login_name, "login_name" %></th>
+      <td> <%= f.text_field :login_name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :password, "password" %></th>
+      <td><%= f.password_field :password %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :password_confirmation, "password_confirmation" %></th>
+      <td><%= f.password_field :password_confirmation %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :root, "Root" %></th>
+      <td><%= f.check_box :root %></td>
+    </tr>
+  </table>
+
+  <div class="commands">
+    <%= f.submit %>
+  </div>
+<% end %>

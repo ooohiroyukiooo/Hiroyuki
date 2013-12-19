@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    redirect_to :edit, notice: "会員を削除しました。"
+    redirect_to :root, notice: "会員を削除しました。"
   end
   
   private

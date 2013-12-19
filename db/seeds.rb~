@@ -6,8 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Article.create(
-  title: "hiroyukiの日常"
-  name: "hiroyuki"
+  title: "hiroyukiの日常",
+  name: "hiroyuki",
   content: "こんにちは！　サッカーが大好きです"
 )
-
+User.create(
+  login_name: "hiroyuki",
+  password: "password",
+  password_confirmation: "password"
+)

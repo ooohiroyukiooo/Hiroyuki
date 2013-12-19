@@ -1,0 +1,6 @@
+<%= form_for @user do |f| %>
+<%= f.label :password, "パスワード"%>
+<%= f.password_field :password %>
+<%= f.label :password_confirmation, "パスワード確認"%>
+<%= f.password_field :password_confirmation %>
+<%end%>

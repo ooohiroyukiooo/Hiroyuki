@@ -1,33 +1,7 @@
 class TopsController < ApplicationController
+
   def index
     @articles = Article.all
   end
 
-  def edit
-  end
-
-  def new
-    @articles =  Article.new
-  end
-
-  def create
-    @articles = Article.new(article_params)
-    if @articles.save
-      redirect_to :root
-    else
-      render 'new'
-    end
-  end
-
-  def show
-  end
-  
-  private
-  def article_params
-    params.require(:article).permit(
-    :title,
-    :name,
-    :content
-    )
-  end
 end
