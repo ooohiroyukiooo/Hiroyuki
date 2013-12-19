@@ -1,17 +1,18 @@
 Hiroyuki::Application.routes.draw do
-  
+
   root 'tops#index'
   resources :tops, only: [ :index ]
   resources :articles
-  resource :session, only: [:new, :create, :destroy]
-  
- namespace :admin do
-  root to: "top#index"
-  resources :articles
   resource :user, only: [:show, :edit, :update]
   resource :session, only: [:new, :create, :destroy]
- end
-  
+
+  namespace :admin do
+    root to: "top#index"
+    resources :articles
+    resource :user, only: [:show, :edit, :update]
+    resource :session, only: [:new, :create, :destroy]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

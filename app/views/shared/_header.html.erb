@@ -1,28 +1,6 @@
-<% if controller.kind_of?(Admin::Base) %>
-<div class="menubar" id="admin_menubar">
-<%= link_to "管理TOP", :admin_root %> &nbsp;|&nbsp;
-<%= link_to "会員管理", :admin_user %> &nbsp;|&nbsp;
-<%= link_to "記事管理", :admin_articles %> &nbsp;|&nbsp;
-<%= link_to "TOP", :root %>
-</div>
-<% else %>
-<div class="menubar">
-<%= link_to "TOP", root_path %> &nbsp;|&nbsp;
-<%= link_to "ニュース", :articles %> &nbsp;|&nbsp;
-<%= link_to "ブログ", "#" %>
-
-<%if @current_user %>
-&nbsp;|&nbsp; <%= link_to "会員名簿" %>
-    <% if @current_user.administrator? %>
-&nbsp;|&nbsp; <%= link_to "管理ページ", :admin_root %>
-    <% end %>
-  <% end %>
-</div>
-<% end %>
-
 <% if @current_user %>
 <p class="user">
-<%= link_to @current_user.login_name, :user %>さん　
+<%= link_to @current_user.login_name, user_path(@current_user) %>さん　
 <%= link_to "ログアウト", :session,
      method: :delete, confirm: "ログアウトしますか？" %>
 </p>
