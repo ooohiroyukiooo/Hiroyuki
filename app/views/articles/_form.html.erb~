@@ -1,0 +1,16 @@
+<%= render "shared/errors", obj: @article %>
+<table>
+  <tr>
+    <th><%= article.label :title %></th>
+    <td><%= article.text_field :title %></td>
+  </tr>
+  <tr>
+    <th><%= article.label :name %></th>
+    <td><%= article.text_field :name %></td>
+  </tr>
+  <tr>
+    <th><%= article.label :content %></th>
+    <td><%= article.text_area :content %></td>
+  </tr>
+</table>
+
