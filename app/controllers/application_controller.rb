@@ -11,16 +11,23 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def current_admin
-  #   if session[:current_admin_id]
-  #     @current_admin = Administrator.find_by_id(session[:current_admin_id])
-  #     session.delete(:current_admin_id) unless @current_admin
-  #   end
-  #   @current_admin
-  # end
-
   def login_required
     redirect_to :new_session unless @current_user
   end
-end
 
+  def current_admin
+    if session[:current_admin_id]
+      @current_admin = Administrator.find_by_id(session[:current_admin_id])
+      session.delete(:current_admin_id) unless @current_admin
+    end
+    @current_admin
+  end
+
+  def authenticate_administrator
+    unless current_admin
+      redirect_to [ :new, :admin, :session ]
+    end
+  end
+
+
+end

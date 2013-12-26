@@ -1,7 +1,0 @@
-class AdministratorsController < ApplicationController
-  
-  def show
-    redirect_to :root
-  end
-  
-end

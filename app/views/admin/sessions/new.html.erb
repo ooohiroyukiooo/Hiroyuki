@@ -1,0 +1,11 @@
+<%= form_tag [ :admin, :session ], id: 'session' do %>
+  <div class="form">
+    <%= label_tag :login_name, "ログイン名" %>
+    <%= text_field_tag :login_name %><br/>
+  </div>
+  <div class="form">
+    <%= label_tag :password, "パスワード" %>
+    <%= password_field_tag :password %><br/>
+  </div>
+  <%= submit_tag "ログイン", id: "submit_button" %><br/>
+<% end %>
