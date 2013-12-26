@@ -1,7 +1,0 @@
-0.upto(9) do |idx|
-  User.create(number: idx + 10,
-    administrator: (idx == 0),
-    password: "password",
-    password_confirmation: "password"
-  )
-  end
