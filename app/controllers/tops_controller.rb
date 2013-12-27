@@ -1,6 +1,5 @@
 class TopsController < ApplicationController
-
-  before_filter :login_required
+  before_filter :authenticate_user
 
   def index
     @articles = Article.all

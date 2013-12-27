@@ -1,18 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :current_user
-
   private
   def current_user
     if session[:user_id]
       @current_user = User.find_by_id(session[:user_id])
       session.delete(:user_id) unless @current_user
     end
+    @current_user
   end
+  helper_method :current_user
 
-  def login_required
-    redirect_to :new_session unless @current_user
+  def authenticate_user
+    unless current_user
+      redirect_to [ :new, :session ]
+    end
   end
 
   def current_admin
@@ -22,12 +24,12 @@ class ApplicationController < ActionController::Base
     end
     @current_admin
   end
+  helper_method :current_admin
 
   def authenticate_administrator
     unless current_admin
       redirect_to [ :new, :admin, :session ]
     end
   end
-
 
 end

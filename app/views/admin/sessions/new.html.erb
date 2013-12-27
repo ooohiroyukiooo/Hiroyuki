@@ -1,3 +1,7 @@
+<h2>ログイン</h2>
+<% if flash.alert %>
+<p class="alert"><%= flash.alert %></p>
+<% end %>
 <%= form_tag [ :admin, :session ], id: 'session' do %>
   <div class="form">
     <%= label_tag :login_name, "ログイン名" %>

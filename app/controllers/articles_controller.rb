@@ -1,15 +1,15 @@
 class ArticlesController < ApplicationController
 
-  before_filter :login_required
-  
+  before_filter :authenticate_user
+
   def show
   end
-  
-  
+
+
   def edit
     @articles = Article.find(params[:id])
   end
-  
+
   def update
     @articles = Article.find(params[:id])
     @articles.assign_attributes(article_params)
@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
       render "edit"
     end
   end
-  
+
   def new
     @articles = Article.new
   end
@@ -32,13 +32,13 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
-  
+
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to :root, notice: "会員を削除しました。"
   end
-  
+
   private
   def article_params
     params.require(:article).permit(

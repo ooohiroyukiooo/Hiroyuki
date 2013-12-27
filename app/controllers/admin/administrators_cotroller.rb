@@ -1,5 +1,4 @@
 class Admin::AdministratorsController < Admin::Base
-  before_filter :authenticate_administrator
 
   def index
     @admins = Administrator.active.order("created_at DESC")

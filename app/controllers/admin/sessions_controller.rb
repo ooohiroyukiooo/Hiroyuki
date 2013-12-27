@@ -1,17 +1,13 @@
 class Admin::SessionsController < Admin::Base
+  skip_before_filter :authenticate_administrator
 
   def new
   end
 
   def create
     if admin = AdminPasswordAuthenticator.verify(params[:login_name], params[:password])
-      if admin.deleted_at == nil
-        session[:current_admin_id] = admin.id
-        redirect_to :admin_root
-      else
-        flash.now.alert = "ログイン名またはパスワードが違います。"
-        render action: :new
-      end
+      session[:current_admin_id] = admin.id
+      redirect_to :admin_root
     else
       flash.now.alert = "ログイン名またはパスワードが違います。"
       render action: :new

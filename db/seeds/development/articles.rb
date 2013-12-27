@@ -1,5 +1,23 @@
 Article.create(
-  title: "hiroyukiの日常",
+  title: "aaa",
   name: "hiroyuki",
-  content: "こんにちは！　サッカーが大好きです"
+  content: "Hello"
+)
+
+Article.create(
+  title: "bbb",
+  name: "hiroyuki",
+  content: "Hello"
+)
+
+Article.create(
+  title: "ccc",
+  name: "hiroyuki",
+  content: "Hello"
+)
+
+Article.create(
+  title: "ddd",
+  name: "hiroyuki",
+  content: "Hello"
 )
