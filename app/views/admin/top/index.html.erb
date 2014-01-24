@@ -1,8 +1,7 @@
 <h1>タイトル一覧</h1>
 
-<%= link_to current_admin.login_name %> |
-<%= link_to 'ログアウト', [ :admin, :session ], method: :delete, data: { confirm: '本当にログアウトしますか？' } %>
-
+<%= link_to current_admin.login_name, [ :admin, current_admin]%> |
+<%= link_to "ログアウト", [ :admin, :session ], method: :delete, data: { confirm: "本当にログアウトしますか？" } %>
 
 <%= link_to "新規作成", :new_admin_article %>
 
@@ -14,5 +13,7 @@
   <li><%= article.created_at %></li>
 </ul>
 
-<%= link_to "編集", [:edit, :admin, article] %> | <%= link_to "削除", article, method: :delete, confirm: "本当に削除しますか？" %>
+<%= link_to "編集", [ :edit, :admin, article] %> |
+<%= link_to "削除", [ :admin, article], method: :delete,
+  confirm: "本当に削除しますか？" %>
 <% end %>

@@ -9,6 +9,7 @@ Hiroyuki::Application.routes.draw do
   namespace :admin do
     root to: "top#index"
     resources :articles
+    resources :administrators
     resource :user, only: [:show, :edit, :update]
     resource :session, only: [:new, :create, :destroy]
   end
